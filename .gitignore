@@ -1,0 +1,31 @@
+# Ignore node_modules in frontend & backend
+frontend/node_modules/
+backend/node_modules/
+
+# Logs
+*.log
+
+# Env files
+*.env
+
+# IDE/Editor configs
+.vscode/
+.idea/
+frontend/.vscode/
+backend/.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Python cache (for ai_service if it's Python-based)
+ai_service/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+.env/
+
+# Build artifacts
+dist/
+build/

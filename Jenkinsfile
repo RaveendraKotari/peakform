@@ -46,9 +46,10 @@ pipeline {
                     docker rm -f backend-uat || true
                     docker rm -f ai-uat || true
 
-                    docker run -d --name frontend-uat -p 3001:3000 peakform-frontend:latest
-                    docker run -d --name backend-uat -p 4001:4000 peakform-backend:latest
-                    docker run -d --name ai-uat -p 5001:5000 peakform-ai-service:latest
+                    docker run -d --name frontend-uat -p 3001:80   peakform-frontend:latest
+                    docker run -d --name backend-uat  -p 4001:4000 peakform-backend:latest
+                    docker run -d --name ai-uat       -p 5001:5000 peakform-ai-service:latest
+
                     '''
                 }
             }
@@ -63,9 +64,10 @@ pipeline {
                     docker rm -f backend-sandbox || true
                     docker rm -f ai-sandbox || true
 
-                    docker run -d --name frontend-sandbox -p 3002:3000 peakform-frontend:latest
-                    docker run -d --name backend-sandbox -p 4002:4000 peakform-backend:latest
-                    docker run -d --name ai-sandbox -p 5002:5000 peakform-ai-service:latest
+                    docker run -d --name frontend-sandbox -p 3002:80   peakform-frontend:latest
+                    docker run -d --name backend-sandbox  -p 4002:4000 peakform-backend:latest
+                    docker run -d --name ai-sandbox       -p 5002:5000 peakform-ai-service:latest
+
                     '''
                 }
             }
@@ -80,9 +82,10 @@ pipeline {
                     docker rm -f backend-prod || true
                     docker rm -f ai-prod || true
 
-                    docker run -d --name frontend-prod -p 80:3000 peakform-frontend:latest
-                    docker run -d --name backend-prod -p 4000:4000 peakform-backend:latest
-                    docker run -d --name ai-prod -p 5000:5000 peakform-ai-service:latest
+                    docker run -d --name frontend-prod -p 80:80     peakform-frontend:latest   // use -p 8088:80 if 80 is busy
+                    docker run -d --name backend-prod  -p 4000:4000 peakform-backend:latest
+                    docker run -d --name ai-prod       -p 5000:5000 peakform-ai-service:latest
+
                     '''
                 }
             }
